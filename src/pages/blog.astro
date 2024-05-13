@@ -1,0 +1,28 @@
+---
+title: "MI PRIMER ARTICULO BLOG"
+date: "2024-05-12"
+---
+
+<article>
+  <h1>title</h1>
+  <p>Este es mi primer artículo de blog en mi nuevo sitio web.</p>
+  <p>¡Espero que te guste! :)</p>
+</article>
+
+// fetchArticles.js
+
+export async function fetchArticles() {
+  const apiUrl = 'http://mi-url-de-strapi.com/api/articles';
+  
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error('Error al obtener los datos de los artículos');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
+  }
+}
